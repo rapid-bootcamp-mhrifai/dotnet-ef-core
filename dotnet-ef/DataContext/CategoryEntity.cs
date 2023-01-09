@@ -10,14 +10,19 @@ namespace dotnet_ef_core.DataContext
         [Key]
         [Column("id")]
         public int Id { get; set; }
+
         [Column("category_code")]
         public String CategoryCode { get; set; }
+
         [Column("category_name")]
         public String CategoryName { get; set; }
-        [Column("description")]
-        public String Description { get; set; }
-        public CategoryEntity() { }
 
+        [Column("description")]
+        public String Decription { get; set; }
+
+        public CategoryEntity()
+        {
+        }
     }
 
 }

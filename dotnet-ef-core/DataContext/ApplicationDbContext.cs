@@ -5,11 +5,10 @@ namespace dotnet_ef_core.DataContext
 {
     public class ApplicationDbContext : DbContext
     {
-        // injection
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
-
         public DbSet<CategoryEntity> categories { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseMySQL("server=localhost;database =ef_db;uid=root;pwd=root;");
+        }
     }
 }
