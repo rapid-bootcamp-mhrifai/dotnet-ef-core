@@ -1,4 +1,11 @@
+using dotnet_ef_core.DataContext;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
+
+//untuk EF
+builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(
+    builder.Configuration.GetConnectionString("SamuraiConnection")).EnableSensitiveDataLogging());
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
